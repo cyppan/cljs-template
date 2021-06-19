@@ -1,0 +1,20 @@
+{:source-paths ["src"]
+
+ :dependencies [[binaryage/devtools "1.0.3"]
+                [reagent "1.1.0"]
+                [cljs-ajax "0.8.3"]]
+
+ :nrepl        {:port 3333}
+
+ :builds {:app {:target :browser
+                :output-dir "public/js"
+                :asset-path "/js"
+
+                :modules
+                {:main
+                 {:entries [app.core]}}
+
+                :devtools
+                {:after-load  app.core/main
+                 :http-root   "public"
+                 :http-port   3000}}}}
